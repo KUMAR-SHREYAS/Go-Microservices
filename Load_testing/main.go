@@ -125,6 +125,7 @@ func userHandler(rw http.ResponseWriter, r *http.Request) {
 	case http.MethodGet:
 		usersMu.RLock()
 		u, found := users[id]
+		usersMu.RUnlock()
 		if !found {
 			http.Error(rw, "user not found", http.StatusNotFound)
 			return
@@ -158,8 +159,11 @@ func main() {
 
 	// spin up server
 	server := &http.Server{
-		Addr:    ":8080",
-		Handler: loggingMiddlware(mux),
+		Addr:         ":8080",
+		Handler:      loggingMiddlware(mux),
+		ReadTimeout:  10 * time.Second,
+		WriteTimeout: 10 * time.Second,
+		IdleTimeout:  30 * time.Second,
 	}
 
 	// run server using goroutines
