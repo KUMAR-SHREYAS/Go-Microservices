@@ -81,6 +81,7 @@ func createUser(rw http.ResponseWriter, r *http.Request) {
 		http.Error(rw, "name and email are required", http.StatusBadRequest)
 		return
 	}
+
 	// increment id counter and create user struct
 	id := atomic.AddInt64(&idCounter, 1)
 	u := &User{
@@ -97,6 +98,7 @@ func createUser(rw http.ResponseWriter, r *http.Request) {
 	rw.Header().Set("Location", fmt.Sprintf("/users/%d", id))
 	writeJSON(rw, u, http.StatusCreated)
 }
+
 func usersHandler(rw http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case http.MethodGet:
