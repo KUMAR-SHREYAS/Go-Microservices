@@ -20,7 +20,7 @@ func TestProductInvalidSKUReturnsErr(t *testing.T) {
 	p := Product{
 		Name:  "abc",
 		Price: 1.22,
-		SKU:   "abc",
+		SKU:   "abc-def",
 	}
 	v := NewValidation()
 	err := v.Validate(p)

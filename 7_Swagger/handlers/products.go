@@ -31,6 +31,10 @@ type ValidationError struct {
 	Messages []string `json:"messages"`
 }
 
+// getProductID returns the product ID from the URL
+// Panics if cannot convert the id into an integer
+// this should never happen as the router ensures that
+// this is a valid number
 func getProductID(r *http.Request) int {
 	vars := mux.Vars(r)
 	id, err := strconv.Atoi(vars["id"])

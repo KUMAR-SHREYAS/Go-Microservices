@@ -1,7 +1,8 @@
 // GET - curl request - curl http://localhost:9090/
 // POST - curl -X POST "http://localhost:9090/" -H "Content-Type: application/json" -d "{\"id\":3,\"name\":\"Cappuccino\",\"description\":\"Coffee with steamed milk and foam\",\"price\":3.15,\"sku\":\"capp123\",\"createdOn\":\"2025-09-19T10:00:00Z\",\"updatedOn\":\"2025-09-19T10:00:00Z\"}"
 // PUT - curl -X PUT http://localhost:9090/2 -H "Content-Type: application/json" -d '{"name":"Espresso Double Shot","description":"Extra strong coffee without milk","price":2.49,"sku":"fjd34"}'
-
+// http://localhost:9090/swagger.yaml
+// http://localhost:9090/docs
 package main
 
 import (

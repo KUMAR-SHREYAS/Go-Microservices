@@ -6,6 +6,7 @@ import (
 	"restful-service/data"
 )
 
+// MiddlewareValidateProduct validates the product in the request and calls next if ok
 func (p *Products) MiddlewareValidateProduct(next http.Handler) http.Handler {
 	// A HandlerFunc(f) calls function f as Http Handler , basically conversion
 	return http.HandlerFunc(func(rw http.ResponseWriter, r *http.Request) {
